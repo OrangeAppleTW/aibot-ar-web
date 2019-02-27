@@ -1,0 +1,143 @@
+:root {
+    --ib-command-width: 50px;
+    --ib-command-height: 50px;
+    --ib-border-radius: 10px;
+    --ib-box-padding: 5px;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+* { /* ios mobile disable long press */
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+/******************** 指令執行區 ********************/
+.ib-runner-container {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.ib-runner {
+    background-color: #0b2349dd;
+    padding: 0px 5px 0px 5px;
+    height: 80px;
+    border-radius: 15px;
+    white-space: nowrap;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.ib-runner-scroll {
+    left: 0;
+    position: relative;
+    transition: left 0.2s;
+}
+
+/******************** 指令方塊樣式 ********************/
+.command {
+    border-radius: 10px;
+    text-align: center;
+    display: inline-block;
+    padding: 5px;
+    
+    
+}
+.command span {
+    color: gold;
+    font-weight: bold;
+    display: block;
+    height: 20px;
+
+    user-select: none;
+}
+.command-icon {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 10px;
+    line-height: 50px;
+    background-color: #82a6dd;
+    border: 3px solid #3b65a7;
+    box-sizing: border-box;
+    font-size: 20px;
+    color: #333;
+    cursor: grab;
+}
+.command.active .command-icon {
+    background-color: lightgreen;
+}
+
+/******************** 指令編輯區 ********************/
+.ib-editor-container {
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.ib-editor {    
+    padding: 10px;
+    background-color: #0b2349ee;
+    width: 360px;
+    max-height: 80vh;
+    border-radius: 10px;
+    text-align: left;
+}
+.ib-editor > div:first-child {
+   max-height: 400px;
+   overflow: scroll;
+}
+
+.ib-editor .fake-command {
+    position: fixed;
+}
+
+/******************** 下拉選單 ********************/
+.dropdown {
+    position: fixed;
+    background-color: #0b2349ee;
+    display: none;
+}
+
+.dropdown > div {
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.dropdown::before {
+    z-index: -1;
+    content: '';
+    border-width: 10px;
+    border-color: rgba(0, 0, 0, 0);
+    border-top-color: #fff;
+    border-left-color: #fff;
+    border-style: solid;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg)
+}
+
+/***********************************************************/
+button {
+    background-color: orange;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    border-width: 0;
+    margin: 5px;
+    font-size: 1.2rem;
+}

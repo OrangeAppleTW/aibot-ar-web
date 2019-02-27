@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>ibot</title>
+    <script src="./lib/vue.js"></script>
+    <script src="https://aframe.io/releases/0.8.0/aframe.js"></script>
+    <script src="./component/grid.js"></script>
+    <script src="./component/rock.js"></script>
+    <script src="./component/key.js"></script>
+    <script src="./component/box.js"></script>
+    <script src="./runner.js"></script>
+    <script src="./editor.js"></script>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <a-scene>
+        <a-entity grid>
+            <a-entity key pos="4 4" geometry="primitive: box;" material="color: gold"></a-entity>
+            <a-entity rock pos="3 3" geometry="primitive: box;" material="color: black"></a-entity>
+            <a-entity id="player" player pos="2 2" geometry="primitive: box;" material="color: red"></a-entity>
+        </a-entity>
+        <a-camera position="0 5 0" wasd-controls-enabled="false"></a-camera>
+        <a-sky color="lightblue"></a-sky>
+    </a-scene>
+
+    <div id="app">
+        <ib-editor ref="editor"></ib-editor>
+    </div>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            methods: {
+                attachRunner: function (runner) {
+                    this.$refs.editor.attachRunner(runner);
+                }
+            }
+        });
+        const grid = document.querySelector('[grid]').components.grid;
+        const runner = new Runner(grid);
+        app.attachRunner(runner);
+    </script>
+</body>
+</html>

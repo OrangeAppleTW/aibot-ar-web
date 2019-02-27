@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ibot</title>
+    <script src="../lib/vue.js"></script>
+    <script src="../lib/aframe.js"></script>
+    <script src="../component/grid.js"></script>
+    <script src="../component/box.js"></script>
+    <script src="../runner.js"></script>
+    <script src="../editor.js"></script>
+    <link rel="stylesheet" href="../index.css">
+</head>
+
+<body>
+    <a-scene vr-mode-ui="enabled: false">
+        <a-entity grid="row:4; col:4;">
+            <a-entity box pos="1 1" geometry="primitive: box;" material="color: orange"></a-entity>
+            <a-entity player pos="1 0" gltf-model="/model/ufo/1352 Flying Saucer.gltf" scale="0.01 0.01 0.01"></a-entity>
+        </a-entity>
+        <a-camera position="0 5 0"></a-camera>
+        <a-sky color="#111"></a-sky>
+    </a-scene>
+
+    <div id="app">
+        <ib-root :initialcommands="defaultCommands"
+                 :runner="runner"
+        ></ib-root>
+    </div>
+
+    <script>
+        const grid = document.querySelector('[grid]').components.grid;
+        const runner = new Runner(grid);
+
+        let defaultCommands = [
+            'M', 'L', 'M', 'R', 'M', 'R', 'J0',
+            // 'L', 'M', 'R', 'M', 'R', 'M', 'M',
+        ];
+
+        const app = new Vue({
+            el: '#app',
+            data: { runner, defaultCommands }
+        });
+    </script>
+</body>
+</html>

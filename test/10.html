@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ibot</title>
+    <script src="../lib/vue.js"></script>
+    <script src="../lib/aframe.js"></script>
+    <script src="../component/grid.js"></script>
+    <script src="../component/box.js"></script>
+    <script src="../component/rock.js"></script>
+    <script src="../runner.js"></script>
+    <script src="../editor.js"></script>
+    <link rel="stylesheet" href="../index.css">
+</head>
+
+<body>
+    <a-scene vr-mode-ui="enabled: false">
+        <a-entity grid="row:5; col:4;">
+            <a-box box pos="2 2" src="/texture/box.png"></a-box>
+            <a-box box pos="3 2" src="/texture/box.png"></a-box>
+            <a-box rock pos="3 1" src="/texture/wall.png"></a-box>
+            <a-entity player pos="2 3" gltf-model="/model/ufo/1352 Flying Saucer.gltf" scale="0.01 0.01 0.01"></a-entity>
+        </a-entity>
+        <a-camera position="-3 5 3"></a-camera>
+        <a-sky color="#111"></a-sky>
+    </a-scene>
+
+    <div id="app">
+        <ib-root :initialcommands="defaultCommands"
+                 :runner="runner"
+        ></ib-root>
+    </div>
+
+    <script>
+        const grid = document.querySelector('[grid]').components.grid;
+        const runner = new Runner(grid);
+
+        // 測試指令 M, B, R, -
+        let defaultCommands = [
+            'R', 'R',
+            'M', 'L', 'M', 'B', 'B', 'R', 'M', 
+            'M', 'L', 'M', 'M', 'M', 'L', 'M', 'M', 'L', 'M', 'M', 'L', 'M', 'R', 'M', 'L', 'M', 'L', 'M', 'M'
+        ];
+        // 過關條件： 撿起所有物品
+        grid.setChecker(function () {
+            if (grid.grid[4][3] && grid.grid[4][0]) {
+                    runner.pause();
+                    alert('過關！');
+                }
+        });
+
+        const app = new Vue({
+            el: '#app',
+            data: { runner, defaultCommands }
+        });
+    </script>
+</body>
+</html>
