@@ -24,11 +24,11 @@
 <body>
     <a-scene embedded arjs='trackingMethod: best; debugUIEnabled: false; patternRatio: 0.75;' vr-mode-ui="enabled: false">
         
-        <a-marker preset="pattern" type="pattern" url="./markers/a.patt" sub-marker="5 1">
+        <a-marker preset="pattern" type="pattern" url="../markers/a.patt" sub-marker="5 1">
         </a-marker>
-        <a-marker preset="pattern" type="pattern" url="./markers/b.patt" sub-marker="1 5">
+        <a-marker preset="pattern" type="pattern" url="../markers/b.patt" sub-marker="1 5">
         </a-marker>
-        <a-marker preset="pattern" type="pattern" url="./markers/arcode.patt" sub-marker="1 1">
+        <a-marker preset="pattern" type="pattern" url="../markers/arcode.patt" sub-marker="1 1">
         </a-marker>
 
     
@@ -47,7 +47,7 @@
                     <a-entity food="color: gold" item="name: gold;" pos="4 0" scale="0.3 0.3 0.3"></a-entity>
                     <a-entity food="color: gold" item="name: gold;" pos="6 4" scale="0.3 0.3 0.3"></a-entity>
                     <a-entity food="color: gold" item="name: gold;" pos="6 2" scale="0.3 0.3 0.3"></a-entity>
-                    <a-entity player pos="3 3" gltf-model="./model/ufo/1352 Flying Saucer.gltf" scale="0.01 0.01 0.01"></a-entity>     
+                    <a-entity player pos="3 3" gltf-model="../model/ufo/1352 Flying Saucer.gltf" scale="0.01 0.01 0.01"></a-entity>     
                 </a-entity>
             </a-entity>
         </a-entity>
@@ -95,6 +95,6 @@
     </script>
 
     <!-- 載入多個 marker 演算法 1 -->
-    <script src="./multi-marker/2.js"></script>
+    <script src="../multi-marker/2.js"></script>
 </body>
 </html>

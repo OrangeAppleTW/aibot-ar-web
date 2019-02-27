@@ -23,21 +23,21 @@
 <body>
     <a-scene embedded arjs='trackingMethod: best; debugUIEnabled: false; patternRatio: 0.75;' vr-mode-ui="enabled: false">
         
-        <a-marker preset="pattern" type="pattern" url="./markers/a.patt" sub-marker="0 0">
+        <a-marker preset="pattern" type="pattern" url="../markers/a.patt" sub-marker="0 0">
         </a-marker>
-        <a-marker preset="pattern" type="pattern" url="./markers/b.patt" sub-marker="3 0">
+        <a-marker preset="pattern" type="pattern" url="../markers/b.patt" sub-marker="3 0">
         </a-marker>
-        <a-marker preset="pattern" type="pattern" url="./markers/arcode.patt" sub-marker="0 -2">
+        <a-marker preset="pattern" type="pattern" url="../markers/arcode.patt" sub-marker="0 -2">
         </a-marker>
 
     
         <a-entity id="center" scale="1.25 1.25 1.25">
             <a-entity id="center_offset" >
                 <a-entity grid="row:4; col:4;">
-                    <a-box box pos="2 2" src="./texture/box.png"></a-box>
-                    <a-box box pos="2 1" src="./texture/box.png"></a-box>
-                    <a-box rock pos="1 1" src="./texture/wall.png"></a-box>
-                    <a-entity player pos="3 2" gltf-model="./model/ufo/1352 Flying Saucer.gltf" scale="0.01 0.01 0.01"></a-entity>     
+                    <a-box box pos="2 2" src="../texture/box.png"></a-box>
+                    <a-box box pos="2 1" src="../texture/box.png"></a-box>
+                    <a-box rock pos="1 1" src="../texture/wall.png"></a-box>
+                    <a-entity player pos="3 2" gltf-model="../model/ufo/1352 Flying Saucer.gltf" scale="0.01 0.01 0.01"></a-entity>     
                 </a-entity>
             </a-entity>
         </a-entity>
@@ -86,6 +86,6 @@
     </script>
 
     <!-- 載入多個 marker 演算法 1 -->
-    <script src="./multi-marker/2.js"></script>
+    <script src="../multi-marker/2.js"></script>
 </body>
 </html>
