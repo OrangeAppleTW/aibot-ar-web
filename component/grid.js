@@ -257,12 +257,7 @@ AFRAME.registerComponent('grid', {
     // 重置遊戲關卡
     // 刪除所有元素再新增回去，這樣方便展示開始動畫
     reset: function () {
-        // this.initialPos();
-        // let pos = this.player.getAttribute('pos');
-        // this.playerPos = {
-        //     x: Number(pos.split(' ')[0]),
-        //     z: Number(pos.split(' ')[1]),
-        // }
+        this.backpack = [];
         this.el.innerHTML = '';
         while (this.html.childNodes.length > 0) {
             this.el.appendChild(this.html.childNodes[0]);
